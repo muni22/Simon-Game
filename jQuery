@@ -1,0 +1,66 @@
+// classList.add()
+$("button").addClass("big-button")
+
+// classList.remove()
+$("button").removeClass("big-button")
+
+// Check class (If have -> true don't have -> false)
+$("button").hasClass("big-button")
+
+// innerHTML
+$("button").text("Don't do that")  
+
+// Get attribute of element
+console.log($("h1").attr("class"))
+
+// Set attribute of element
+$("button").attr("type", "button")
+
+// addEventListener -> click
+$(".heading").click(function () {
+    $(".heading").css("color" ,"red")
+})
+
+// For Loop
+$.each($("button"),function (index,button) {
+    $(button).click(function () {
+        $(button).addClass("big-button")
+        setTimeout(() => {
+            $(button).removeClass("big-button")
+        }, 1000);
+    })
+})
+
+// addEventListener -> keypress
+$(document).keypress(function (event) {
+    $("h1").text(event.key)
+})
+
+// "on" method to add addEventListener
+$(document).on("keypress", function (event) {
+    $("h1").text(event.key)
+})
+
+// "before >< after, prepend >< append" method to add new Element before.. element you choose
+$("h1").before("<button>Newbefore</button>")
+$("h1").prepend("<button>Newbefore</button>")
+$("h1").append("<button>Newbefore</button>")
+$("h1").after("<button>Newbefore</button>")
+
+// "hide ,FadeIn, FadeOut, slideUp, slideDown" and + "toggle" method
+$.each($("button"), function (index, button) {
+    $(button).click(function () {
+        $("h1").slideToggle()
+    })
+})
+
+// "animate" method to add css rule
+$.each($("button"), function (index, button) {
+    $(button).click(function () {
+        $("h1").animate({opacity:0.7})
+    })
+})
+
+// use a lot of method at the same time
+
+$("h1").slideUp().slideDown().animate({opacity:0.7})
